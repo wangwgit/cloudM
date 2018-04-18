@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>众创数字资产综合运营管理平台</title>
+    <link rel="stylesheet" href="../commons/layui/css/layui.css"/>
+
+</head>
+<body>
+<table class="layui-table" lay-even lay-skin="nob">
+    <tbody>
+    <tr>
+        <th width="100" style="text-align: right">会员ID</th>
+        <td>10001</td>
+    </tr>
+    <tr>
+        <th class="pad" style="text-align: right">会员姓名</th>
+        <td>张三</td>
+    </tr>
+    <tr>
+        <th class="pad" style="text-align: right">手机号码</th>
+        <td>1368888888</td>
+    </tr>
+    <tr>
+        <th class="pad" style="text-align: right">AGR账户ID</th>
+        <td>AGR00001</td>
+    </tr>
+    <tr>
+        <th style="text-align: right">AGR用户名</th>
+        <td>AGR用户名</td>
+    </tr>
+    <tr>
+        <th style="text-align: right">AGR等级</th>
+        <td>V1</td>
+    </tr>
+    <tr>
+        <th style="text-align: right">账户余额</th>
+        <td><span class="price">10000.00</span></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="layui-input-block">
+    <button class="layui-btn"  id="close">关闭</button>
+</div>
+
+
+<script type="text/javascript" src="../commons/layui/layui.js"></script>
+<script>
+    layui.use(['jquery','form','upload','layer'], function(){
+
+        var $ = layui.jquery,layer = layui.layer;
+        alert(parent.userId)
+        $('#close').on('click', function(){
+            //关闭弹出框
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);
+            //刷新父窗口
+       //     window.parent.location.reload();
+        });
+    });
+</script>
+<script>
+    //调用示例
+
+</script>
+</body>
+</html>

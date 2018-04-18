@@ -1,0 +1,26 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+#     hostname: 10.8.4.177
+    hostname: 192.168.17.94
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      #单节点配置
+      defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+      #集群配置
+#      defaultZone: http://10.8.4.177:8761/eureka/,http://10.8.4.178:8761/eureka/
+  server:
+    # 设为false，关闭自我保护
+   # enable-self-preservation: false
+    # 清理间隔（单位毫秒，默认是60*1000）
+#    eviction-interval-timer-in-ms: 10000
+security:
+  basic:
+    enabled: true
+  user:
+    name: xx
+    password: 123

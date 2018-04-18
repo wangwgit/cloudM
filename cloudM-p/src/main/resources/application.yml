@@ -1,0 +1,4 @@
+spring:
+  profiles:
+  #通过名称确定激活哪个配置文件
+    active: dev

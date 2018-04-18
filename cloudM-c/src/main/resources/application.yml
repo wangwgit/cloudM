@@ -1,0 +1,26 @@
+eureka:
+  client:
+    serviceUrl:
+        defaultZone: http://xx:123@192.168.17.94:8761/eureka/
+#      defaultZone: http://10.1.66.5:8761/eureka/,http://10.8.4.177:8761/eureka/,http://10.8.4.178:8761/eureka/
+server:
+  port: 8766
+spring:
+  application:
+    name: service-feign
+  zipkin:
+    base-url: http://localhost:9000
+  sleuth:
+    sampler:
+      percentage: 1.0
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+          #熔断器的超时时间，避免第一次调用失败
+            timeoutInMilliseconds: 5000

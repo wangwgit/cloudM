@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>XX系统</title>
+    <link rel="stylesheet" href="commons/layui/css/layui.css">
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="commons/comie/html5.min.js"></script>
+    <script src="commons/comie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">XX系统</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="">控制台</a></li>
+            <li class="layui-nav-item"><a href="">商品管理</a></li>
+            <li class="layui-nav-item"><a href="">用户</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">其它系统</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="">消息管理</a></dd>
+                    <dd><a href="">授权管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    欢迎你姓名
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">退出</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll" >
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="left-menu">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">后台管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" data-url="user/list.html" data-id="8">用户管理</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="javascript:;">列表三</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">后台管理2</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" data-url="user/list.html">用户管理</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="javascript:;">列表三</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+
+        <iframe src="" id="mainframe" style="margin: 10px;" frameborder="0"></iframe>
+    </div>
+
+    <div class="layui-footer" style="text-align: center">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
+<script src="commons/layui/layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use(['jquery','element',"layer"], function(){
+        var element = layui.element
+                ,$=layui.jquery;
+        //设置iframe占满中间区域
+        $("#mainframe").width($(window).width() - 230);
+        $("#mainframe").height($(window).height() - 140);
+
+        //窗口尺寸发生改变时设置中间的iframe占满屏幕
+        $(window).on('resize', function() {
+            $("iframe").width($(window).width() - 230);
+            $("iframe").height($(window).height() - 140);
+        });
+        element.on("nav(left-menu)",function(data){
+            var url=data.data('url');
+            $('#mainframe').attr("src",url);
+        });
+    });
+</script>
+</body>
+</html>

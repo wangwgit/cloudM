@@ -1,0 +1,2 @@
+logging:
+  file: c:/log/cloudM-web.log
